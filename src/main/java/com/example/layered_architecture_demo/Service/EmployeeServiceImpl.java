@@ -55,5 +55,17 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
         return employeeMapper.toDTO(employeeEntity);
     }
+    @Override
+    public List<EmployeeDTO> getEmployeesBySalaryRange(double min, double max) {
+        return employeeRepository.findBySalaryBetween(min, max).stream()
+            .map(employeeMapper::toDTO)
+            .collect(Collectors.toList());
+    }
+    @Override
+    public List<EmployeeDTO> getEmployeesByNameAndAge(String name, int age) {
+        return employeeRepository.findByNameContainingAndAgeLessThan(name, age).stream()
+            .map(employeeMapper::toDTO)
+            .collect(Collectors.toList());
+    }
     
 }

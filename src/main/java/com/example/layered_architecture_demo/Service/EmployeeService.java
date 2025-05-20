@@ -10,6 +10,8 @@ public interface EmployeeService {
     EmployeeDTO addEmployee(EmployeeDTO employee);
     EmployeeDTO updaEmployeeDTO(Long id, EmployeeDTO employee);
     EmployeeDTO getEmployeeByName(String name);
+    List<EmployeeDTO> getEmployeesBySalaryRange(double min, double max);
+    List<EmployeeDTO> getEmployeesByNameAndAge(String name, int age);
     void deleteEmployee(Long id);
 
 }
