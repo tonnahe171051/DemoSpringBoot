@@ -12,12 +12,14 @@ import com.example.layered_architecture_demo.DTO.EmployeeDTO;
 import com.example.layered_architecture_demo.Service.EmployeeService;
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/employees")
 @Tag(name = "Employee Management")
+@SecurityRequirement(name = "BearerAuth")
 public class EmployeeController {
 
     private final EmployeeService employeeService;
